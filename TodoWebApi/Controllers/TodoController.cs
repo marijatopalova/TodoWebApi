@@ -56,13 +56,13 @@ namespace TodoWebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Remove(string id)
+        public IActionResult Remove(string key)
         {
-            var item = _todoRepository.Find(id);
+            var item = _todoRepository.Find(key);
             if (item == null)
                 return BadRequest();
 
-            _todoRepository.Remove(id);
+            _todoRepository.Remove(key);
             return new NoContentResult();
         }
     }
